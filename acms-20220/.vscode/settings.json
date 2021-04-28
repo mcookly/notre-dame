@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "/opt/anaconda3/envs/acms20220/bin/python",
+    "python.terminal.activateEnvironment": true
+}
