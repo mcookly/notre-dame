@@ -48,7 +48,7 @@ class Polynomial:
   
     # Return a representation that could be used to reconstruct the object.
     def __repr__(self):
-        return "Polynomal(" + ", ".join([str(c) for c in self.__coefs]) + ")"
+        return "Polynomal((" + ", ".join([str(c) for c in self.__coefs]) + "))"
     
     # Return a "pretty" string representation of the object.
     def __str__(self):
@@ -258,8 +258,9 @@ class Polynomial:
             # zero monic polynomial
             new_poly = Polynomial( [1.0] )
         else:
-            for _ in range(e):
+            for _ in range(e-1):
                 new_poly *= self
+
         return new_poly
     
     # return the derivative of a polynomial.
