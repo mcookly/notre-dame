@@ -107,7 +107,7 @@ class Polynomial:
         scf = self.__coefs
         side_self = True # T: self, F: rhs
         # Check to see which polynomial is longer
-        if type(rhs) == Polynomial:
+        if isinstance(rhs, Polynomial):
             rcf = rhs.__coefs
             if len(scf) > len(rcf):
                 iter_len = len(scf)
@@ -136,9 +136,8 @@ class Polynomial:
         side_self = True # T: self, F: lhs
 
         # check to see which polynomial is longer
-        if type(lhs) == Polynomial:
+        if isinstance(lhs, Polynomial):
             lcf = lhs.__coefs
-
             if len(scf) > len(lcf):
                 iter_len = len(scf)
             else:
@@ -146,11 +145,9 @@ class Polynomial:
                 side_self = False # add rhs contents to end of new_coef
 
             new_coefs = list()
-
             for i in range(iter_len):
                 try:
                     new_coefs.append(scf[i] + lcf[i])
-
                 except IndexError:
                     if side_self:
                         new_coefs.extend(scf[i:])
@@ -167,7 +164,7 @@ class Polynomial:
     # int or float.
     def __sub__(self, rhs):
         # NOTE. Uses __add__ method
-        if type(rhs) == Polynomial:
+        if isinstance(rhs, Polynomial):
             return self + -rhs
         else:
             new_coefs = list(self.__coefs)
@@ -178,7 +175,7 @@ class Polynomial:
     # an int or float.
     def __rsub__(self, lhs):
         # NOTE. Uses __radd__ method
-        if type(lhs) == Polynomial:
+        if isinstance(lhs, Polynomial):
             return lhs + -self
         else:
             new_coefs = list(self.__coefs)
@@ -190,7 +187,7 @@ class Polynomial:
     def __mul__(self, rhs):
         # self: P1, rhs: P2
         cfs = self.__coefs
-        if type(rhs) == Polynomial:
+        if isinstance(rhs, Polynomial):
             r_cfs = rhs.__coefs  
             new_coefs = [0]*(self.degree()+rhs.degree()+1)
             # will ensure that highest degree of P1*P2 has an index
@@ -211,7 +208,7 @@ class Polynomial:
     def __rmul__(self, lhs):
         # self: P2, lhs: P1
         cfs = self.__coefs
-        if type(lhs) == Polynomial:
+        if isinstance(lhs, Polynomial):
             l_cfs = lhs.__coefs
             new_coefs = [0]*(self.degree()+lhs.degree())
             # will ensure that highest degree of P1*P2 has an index
