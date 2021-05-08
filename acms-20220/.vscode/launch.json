@@ -12,7 +12,7 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "cwd": "${workspaceRoot}"
+            "cwd": "${workspaceRoot}/final-project"
         }
     ]
 }
