@@ -4,12 +4,12 @@ import numpy as np
 """
 Problem 5 in ACMS 20220 Final
 Author: Max Cook
-Date: 05/08/2021
+Date: 05/08/2021 (Modified: 05/12/2021)
 See 'Problem 5' for the algorithm:
 https://lucid.app/lucidchart/invitations/accept/inv_9370e3fa-6a2a-409a-b9b0-7dd45eba7da3?viewport_loc=-121%2C348%2C1724%2C673%2C0_0
 """
 
-with open("final_exam_problem_5_input_5.txt", "r") as file:
+with open("final_exam_problem_5_input.txt", "r") as file:
     board = []
     for line in file:
         row = [int(num) for num in line.rstrip().rsplit(",")]
@@ -49,4 +49,4 @@ for i in reversed(range(board.shape[0]-1)):
         best_paths[j] = max(left_square, middle_square, right_square)
     cur_square_sums = best_paths + cur_row
 
-print(f"Maximum obtainable reward: {max(cur_square_sums)}")
+print(cur_square_sums)
