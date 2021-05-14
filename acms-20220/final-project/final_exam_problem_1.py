@@ -9,7 +9,7 @@ Date: 05/12/2021
 import numpy as np
 
 with open("final_exam_problem_1_input.txt", "r") as file:
-    # NOTE: Make sure to adjust to "final_exam_problem_1_input.py"
+    # NOTE: Make sure to adjust to "final_exam_problem_1_input.txt"
     lines = file.readlines()
     POINT = tuple([float(x) for x in lines[0].rstrip().split(",")])
     # Point from which distance will be compared in the sphere.

@@ -8,8 +8,8 @@ Date: 05/12/2021 (Modified: 05/14/2021)
 
 import numpy as np
 
-with open("final_exam_problem_3_input_2.txt", "r") as file:
-    # NOTE: Filename should be "final_exam_problem_3_input.py"
+with open("final_exam_problem_3_input.txt", "r") as file:
+    # NOTE: Filename should be "final_exam_problem_3_input.txt"
     lines = file.readlines()
     DIM = int(lines[0].rstrip())
     NUM_TRIALS = int(lines[1].rstrip())
@@ -41,22 +41,29 @@ def rand_move(cur_pos):
     # and row-3 and col+1 for vertical.
 
     row, col = cur_pos[0], cur_pos[1]
-    l_shape = np.random.randint(2) # 1: turns R, 0: turns L
-    compass = np.random.randint(1,5) # E: 1, N: 2, W: 3, S: 4
+    move_choice = np.random.randint(1,9)
+    l_orient = 1 # 1: R, -1: L
+    row_step = 0 # 1: EW, 2: NS
+    col_step = 0 # 2: EW, 1: NS
+    # (1–4): ER, NR, WR, SR; (1–8): EL, NL, WL, SL
 
-    # Determines next position
-    if compass == 1: # East
-        col += 2
-        row += 1 if l_shape else -1
-    elif compass == 2: # North
-        col += 1 if l_shape else -1
-        row -= 2
-    elif compass == 3: # West
-        col -= 2
-        row -= 1 if l_shape else -1
-    elif compass == 4: # South
-        col -= 1 if l_shape else -1
-        row += 2
+    l_orient = 1 if move_choice <= 4 else -1
+    # Knight moves in a right L-shape or left L-shape
+    if move_choice in (1, 5): # East
+        col_step = 2
+        row_step = l_orient
+    elif move_choice in (2, 6): # North
+        col_step = l_orient
+        row_step = -2
+    elif move_choice in (3, 7): # West
+        col_step = -2
+        row_step = -l_orient
+    elif move_choice in (4, 8): # South
+        col_step = -l_orient
+        row_step = 2
+
+    row += row_step
+    col += col_step
     return row, col
 
 def is_valid_position(pos, dim):
@@ -74,7 +81,6 @@ for _ in range(NUM_TRIALS):
         moves += 1
         pos = new_pos
         if pos == target_pos:
-            print(f"Reached target in {moves} steps.")
             break
     total += moves
 print(total / NUM_TRIALS)

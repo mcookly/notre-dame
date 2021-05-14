@@ -10,6 +10,7 @@ https://lucid.app/lucidchart/invitations/accept/inv_9370e3fa-6a2a-409a-b9b0-7dd4
 """
 
 with open("final_exam_problem_5_input.txt", "r") as file:
+    # NOTE: Filename should be "final_exam_problem_5_input.txt"
     board = []
     for line in file:
         row = [int(num) for num in line.rstrip().rsplit(",")]
@@ -49,4 +50,4 @@ for i in reversed(range(board.shape[0]-1)):
         best_paths[j] = max(left_square, middle_square, right_square)
     cur_square_sums = best_paths + cur_row
 
-print(cur_square_sums)
+print(max(cur_square_sums))
