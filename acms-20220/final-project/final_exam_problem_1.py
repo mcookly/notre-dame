@@ -1,4 +1,4 @@
-# !/usr/bin/env/ python3
+#!/usr/bin/env/ python3
 
 """
 Problem 1 in ACMS 20220 Final
