@@ -3,19 +3,19 @@
 """
 Problem 3 on ACMS 20220 Final
 Author: Max Cook (Collab: Nick Clark)
-Date: 05/12/2021 (Modified:)
+Date: 05/12/2021 (Modified: 05/14/2021)
 """
 
 import numpy as np
 
-with open("final_exam_problem_3_input_5.txt", "r") as file:
+with open("final_exam_problem_3_input_2.txt", "r") as file:
+    # NOTE: Filename should be "final_exam_problem_3_input.py"
     lines = file.readlines()
     DIM = int(lines[0].rstrip())
     NUM_TRIALS = int(lines[1].rstrip())
 
-rng = np.random.default_rng(seed = 1234)
+rng = np.random.default_rng()
 target_pos = (DIM-1, 0)
-total = 0
 
 # Debug function
 def board_vis(dim, old_position, new_position):
@@ -43,7 +43,7 @@ def rand_move(cur_pos):
     row, col = cur_pos[0], cur_pos[1]
     l_shape = np.random.randint(2) # 1: turns R, 0: turns L
     compass = np.random.randint(1,5) # E: 1, N: 2, W: 3, S: 4
-    
+
     # Determines next position
     if compass == 1: # East
         col += 2
@@ -59,14 +59,22 @@ def rand_move(cur_pos):
         row += 2
     return row, col
 
+def is_valid_position(pos, dim):
+    return min(pos) >= 0 and max(pos) < dim
+
+total = 0
 pos = target_pos
 for _ in range(NUM_TRIALS):
+    moves = 0
     while True:
         new_pos = rand_move(pos)
-        if 0 <= new_pos[0] < DIM and 0 <= new_pos[1] < DIM:
-            #board_vis(DIM, pos, new_pos)
-            total += 1
-            pos = new_pos
-            if pos == target_pos:
-                break
+        while not is_valid_position(new_pos, DIM):
+            new_pos = rand_move(pos)
+        # board_vis(DIM, pos, new_pos)
+        moves += 1
+        pos = new_pos
+        if pos == target_pos:
+            print(f"Reached target in {moves} steps.")
+            break
+    total += moves
 print(total / NUM_TRIALS)

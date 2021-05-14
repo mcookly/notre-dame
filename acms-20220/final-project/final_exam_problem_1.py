@@ -1,13 +1,12 @@
-#!/usr/bin/env/ python3
-
-import numpy as np
-import numpy.linalg
+# !/usr/bin/env/ python3
 
 """
 Problem 1 in ACMS 20220 Final
 Author: Max Cook (Collab: Nick Clark)
 Date: 05/12/2021
 """
+
+import numpy as np
 
 with open("final_exam_problem_1_input.txt", "r") as file:
     # NOTE: Make sure to adjust to "final_exam_problem_1_input.py"

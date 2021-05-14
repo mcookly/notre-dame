@@ -2,5 +2,5 @@
     "python.terminal.activateEnvironment": true,
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
-    "python.pythonPath": "/Users/mcook/opt/anaconda3/envs/acms20220/bin/python",
+    "python.pythonPath": "/Users/mcook/opt/miniconda3/envs/acms20220/bin/python",
 }
