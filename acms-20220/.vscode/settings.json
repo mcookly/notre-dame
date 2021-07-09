@@ -1,4 +1,11 @@
 {
+<<<<<<< HEAD
     "python.pythonPath": "C:\\Users\\maxtc\\anaconda3\\python.exe",
     "python.terminal.activateEnvironment": true
+=======
+    "python.terminal.activateEnvironment": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.pythonPath": "/Users/mcook/opt/miniconda3/envs/acms20220/bin/python",
+>>>>>>> cd5d7f88d210e5d332a3a6409f2b900dc8ce6482
 }
