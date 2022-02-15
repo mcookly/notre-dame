@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 # Functions
 def f(u, k):
-    u_k3 = u[2] + 3*u[1] + u[0] + pow(k, 2) + k
+    u_k3 = u[2] + 3*u[1] + u[0] + pow(k-3, 2) + (k-3)
     return u_k3
 
 
@@ -31,7 +31,11 @@ N = int(input("Please enter a non-negative integer N: "))
 # Execute
 u_values = calculate_values(f, N)
 
+# Print values
+print("".join(f"{n}: {u_values[n]}\n" for n in range(len(u_values))))
+
 # Plot
+plt.style.use("seaborn")
 plt.plot(range(len(u_values)), u_values)
 plt.ylabel(r"$u_{k+3}=u_{k+2}+3u_{k+1}+u_k+k^2+k$")
 plt.xlabel(r"$k$")
