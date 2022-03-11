@@ -2,7 +2,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/r,python,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=r,python,visualstudiocode
 ### General ###
-#.DS_STORE
+#.DS_Store
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
