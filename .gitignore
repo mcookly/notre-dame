@@ -1,9 +1,6 @@
 
 # Created by https://www.toptal.com/developers/gitignore/api/r,python,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=r,python,visualstudiocode
-### General ###
-#.DS_Store
-
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -235,3 +232,4 @@ rsconnect/
 # Support for Project snippet scope
 
 # End of https://www.toptal.com/developers/gitignore/api/r,python,visualstudiocode
+.DS_Store
