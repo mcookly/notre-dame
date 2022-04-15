@@ -19,7 +19,7 @@ DELTA = 0.1
 OMEGA = 1
 gammas = [0, 2, 4, 7, 11]
 
-# Form: (x0, y0, tao0)
+# Form: (x0, y0, tau0)
 ic = np.array([10, 0, 0])
 tmax = 600
 
@@ -29,14 +29,14 @@ tmax = 600
 def F(t, v, *args):
 	# Can't seem to make solve_ivp work unless I pass all variables
 	# into the function in one parameter.
-	x, y, tao = v[0], v[1], v[2]
+	x, y, tau = v[0], v[1], v[2]
 	gamma = args[0]
 
 	dxdt = y
-	dydt = gamma*np.cos(OMEGA*tao) - DELTA*y - BETA*x - ALPHA*x**3
-	dtaodt = 1
+	dydt = gamma*np.cos(OMEGA*tau) - DELTA*y - BETA*x - ALPHA*x**3
+	dtaudt = 1
 
-	return np.array([dxdt, dydt, dtaodt])
+	return np.array([dxdt, dydt, dtaudt])
 
 
 def set_plot_chars(gamma):
