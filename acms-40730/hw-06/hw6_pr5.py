@@ -13,11 +13,12 @@ import numpy as np
 # ---------- Parameters
 plt.style.use("seaborn")
 
-tmax = 10
+tmax = 50 # More time for better oscillation patterns in time graphs
+nlim = 10 # Used to keep solutions and phase plane viewable
 ics = [(1,2), (5,1), (0.5,5), (3,5), (1,3.5), (6,4), (4,8)]
 
 # For vector field
-points = np.linspace(0, tmax, 31)
+points = np.linspace(0, nlim, 31)
 xp, yp = np.meshgrid(points, points)
 
 
@@ -76,8 +77,8 @@ for ic in ics:
 ## ODE system
 plt.figure(1)
 plt.axis("square")
-plt.xlim((0, tmax))
-plt.ylim((0, tmax))
+plt.xlim((0, nlim))
+plt.ylim((0, nlim))
 plt.xlabel(r"$\frac{dx}{dt}$")
 plt.ylabel(r"$\frac{dy}{dt}$")
 plt.title("Phase Plane of ODEs")
