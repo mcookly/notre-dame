@@ -47,4 +47,3 @@ for i in range(1, 5):
 		visited = journey_stepwise(i, P)
 		num_returned += 1 if i in visited else 0
 	print(f"Probabiliy of returning to State {i}: {round(1-num_returned/N, 4)}")
-
