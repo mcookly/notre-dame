@@ -39,11 +39,20 @@ def journey_stepwise(s: int, P: np.array):
 	# print(f"Visited states: {visited_states}\n")
 	return visited_states
 
+
+def N_update(state, cur_n):
+	if cur_n%(N/10) == 0:
+		print(f"[State {state}]: Completed {cur_n} of {N} trials ...")
+	else:
+		pass
+
+
 ### Calculate
 
 for i in range(1, 5):
 	num_returned = 0
-	for _ in range(N):
+	for n in range(N):
+		N_update(i, n)
 		visited = journey_stepwise(i, P)
 		num_returned += 1 if i in visited else 0
 	print(f"Probabiliy of returning to State {i}: {round(1-num_returned/N, 4)}")

@@ -58,6 +58,7 @@ def journey_stepwise(s: int, P: np.array):
 	# print(f"Visited states: {visited_states}\n")
 	# return 0
 
+
 def journey_prob(s: int, P: np.array):
 	# Indices are handled numerically as 0–3, while states are 1–4
 
@@ -82,12 +83,20 @@ def journey_prob(s: int, P: np.array):
 	# print(f"Visited states: {visited_states}\n")
 	return 0
 
+
+def N_update(state, cur_n):
+	if cur_n%(N/10) == 0:
+		print(f"[State {state}]: Completed {cur_n} of {N} trials ...")
+	else:
+		pass
+
 ### Calculate no. timesteps using Monte Carlo method for P1
 for i in range(1, 5):
 	# Run through states 1–4
 	sum_steps = 0
 	# mistrials = 0
 	for n in range(N):
+		N_update(i, n)
 		sum_steps += journey_stepwise(i, P1)
 		# mistrials += 1 if sum_steps == 0 else 0
 
@@ -99,6 +108,8 @@ for i in range(1, 5):
 # 	sum_reaches = np.zeros(2) # [reach 4, reach 5]
 # 	mistrials = 0
 # 	for n in range(N):
+# 		N_update(i, n)
+
 # 		hit = journey_prob(i, P2)
 
 # 		if hit == 5:
