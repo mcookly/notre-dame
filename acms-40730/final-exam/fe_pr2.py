@@ -32,7 +32,7 @@ def calc_markov(x0: np.array, nt: int, state: str, f):
 	y = x0
 	for t in range(nt):
 		y = y @ P
-		f.write(f"{t+1} Year(s): {y}\n")
+		f.write(f"+ {t+1} Year(s): {y}\n")
 
 
 ### Calculate

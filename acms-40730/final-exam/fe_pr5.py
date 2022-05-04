@@ -14,7 +14,7 @@ N = 10000
 K = 200
 
 ### Read matrix
-with open("final_exam_problem_5_input_1.txt", "r") as f:
+with open("final_exam_problem_5_input.txt", "r") as f:
 	# NOTE: File name for submission needs to be "final_exam_problem_5_input.txt"
 	flines = f.readlines()
 
@@ -33,4 +33,4 @@ for n in range(N):
 	x0[np.random.randint(0, dim)] = 1
 	statdist_sum += x0 @ np.linalg.matrix_power(P, K)
 
-print(f"Estimated Stationary Distribution of P: {statdist_sum/N}")
+print(f"The estimated Stationary Distribution of P is: {statdist_sum/N}")
